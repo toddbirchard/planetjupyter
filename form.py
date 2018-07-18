@@ -1,0 +1,12 @@
+from wtforms import Form, BooleanField, StringField, PasswordField, validators, HiddenField, DateTimeField
+from wtforms.validators import DataRequired, Regexp, InputRequired, ValidationError
+from currenttime import yourtime, prettytime
+
+
+class JupyterForm(Form):
+    """Homepage form."""
+    PlotlyURL = StringField('Enter any URL ending in .ipynb', validators=[
+                        DataRequired(),
+                            Regexp(".*\.ipynb$",
+                            message="Please provide a URL ending in ipynb"),
+                            ])

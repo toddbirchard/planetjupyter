@@ -1,0 +1,12 @@
+ {% block content %}
+<div class="login-page">
+    <form action="{{ url_for('notebookResult') }}" method="post">
+      <h3>Make your research beautiful</h3>
+        <div>
+          {{ form.PlotlyURL.label }} {{ form.PlotlyURL(placeholder='https://raw.githubusercontent.com/jupyter/mozfest15-training/master/05-multiprocessing.ipynb') }}
+        </div>
+        {{ form.csrf_token }}
+        <button>Check it</button>
+      </form>
+    </div>
+{% endblock %}

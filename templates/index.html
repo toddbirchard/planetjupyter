@@ -1,0 +1,41 @@
+<!doctype html>
+<html class="{{template}}">
+<head>
+  <!-- External Imports -->
+  <script async type="text/javascript" src="{{ url_for('static', filename='js/jquery.js') }}"></script>
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.1.1/css/all.css" integrity="sha384-xyMU7RufUdPGVOZRrc2z2nRWVWBONzqa0NFctWglHmt5q5ukL22+lvHAqhqsIm3h" crossorigin="anonymous">
+  {% compress 'css' %}
+    <link href="{{ url_for('static', filename='less/home.less') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='less/form.less') }}" rel="stylesheet" type="text/css">
+  {% endcompress %}
+  <link rel="shortcut icon" href="{{ url_for('static', filename='img/favicon.png') }}" type="image/x-icon" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Planet Jupyter</title>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-121820790-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-121820790-1');
+  </script>
+</head>
+
+<body>
+  <header>
+    <h1 class="title">Planet Jupyter</h1>
+  </header>
+  <div class="form">
+    {% include "form.html" %}
+    <div class="recents">
+      <hr>
+        <h4>Recent searches</h4>
+      {% for record in recents %}
+        <a href="{{ record.url }}" class="latest">{{ record.githuburl }}</a>
+      {% endfor %}
+    </div>
+  </div>
+  <script type="text/javascript" src="{{ url_for('static', filename='js/previews.js') }}"></script>
+</body>
+</html>
