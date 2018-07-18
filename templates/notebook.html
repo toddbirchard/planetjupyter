@@ -4,7 +4,7 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat:600|Open+Sans" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://cloud.typography.com/7899256/7968392/css/fonts.css" />
   {% compress 'css' %}
-    <link href="{{ url_for('static', filename='less/external.less') }}"rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='less/external.less') }}"rel="stylesheet" type="text/less">
   {% endcompress %}
   <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
   <script async src="{{ url_for('static', filename='js/remove.js') }}"></script>

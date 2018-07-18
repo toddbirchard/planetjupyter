@@ -29,10 +29,11 @@ $(document).ready(function() {
           var link_image = verifyImage(result.image);
           var verify_title = verifyTitle(result);
           console.log(result);
-          $(element).after('<a href="#" onclick="loadRecent(' + target + ')"><div class="link-preview">' + link_image + '<div class="link-info"><h4>' + verify_title + '</h4><p>' + result.description + '</p></div></div></a>');
+          $(element).after('<a href="#"><div class="link-preview">' + link_image + '<div class="link-info"><h4>' + verify_title + '</h4><p>' + result.description + '</p></div></div></a>');
           $(element).remove();
           $("a").click(function(event) {
             event.preventDefault();
+            target = target.replace("https://github.com/", "https://raw.githubusercontent.com/")
             $('input').val(target);
             $("form").submit();
         });
