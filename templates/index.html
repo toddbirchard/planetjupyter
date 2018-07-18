@@ -14,13 +14,7 @@
   </header>
   <div class="form">
     {% include "form.html" %}
-    <div class="recents">
-      <hr>
-        <h4>Recent searches</h4>
-      {% for record in recents %}
-        <a href="{{ record.url }}" class="latest">{{ record.githuburl }}</a>
-      {% endfor %}
-    </div>
+    
   </div>
   {% compress 'js' %}
     <script type="text/javascript" src="{{ url_for('static', filename='js/previews.js') }}"></script>

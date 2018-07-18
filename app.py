@@ -10,10 +10,9 @@ from currenttime import yourtime, prettytime
 
 app = Flask(__name__)
 compress = FlaskStaticCompress(app)
-
 app.config['COMPRESSOR_DEBUG'] = app.config.get('DEBUG')
-app.config['COMPRESSOR_OUTPUT_DIR'] = 'build'
-app.config['COMPRESSOR_STATIC_PREFIX'] = 'static'
+app.config['COMPRESSOR_STATIC_PREFIX'] = '/static'
+app.config['COMPRESSOR_OUTPUT_DIR'] = '/static'
 app.static_folder = 'static'
 
 headers = {
