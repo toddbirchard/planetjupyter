@@ -12,6 +12,10 @@
     }
   }
 
+  .rendered_html {
+        margin: 0 !important;
+  }
+
   .title {
     font-size: 1.5em;
     margin-top: 20%;
@@ -22,7 +26,7 @@
     font-weight: 600;
     text-shadow: #3876d0 0 0 4px;
     @media(max-width: 800px) {
-      font-size: 1em;
+      font-size: .8em;
     }
   }
 
@@ -34,6 +38,12 @@
     font-weight: 500;
     font-family: "Catamarran", "Helvetica Neue", Helvetica, Arial, sans-serif;
     text-shadow: #3876d0 0 0 4px;
+
+    @media(max-width: 600px) {
+      text-shadow: #1b3a67 0 0 4px;
+line-height: 1.3;
+font-weight: 400;
+    }
   }
 
   blockquote {
@@ -62,6 +72,14 @@
       font-size: 0.8em;
       font-size: 2em !important;
       margin-top: 0;
+    }
+    @media (max-width: 600px) {
+      &:first-child {
+        margin: 0 !important;
+        line-height: 1.2;
+        font-weight: 600 !important;
+        font-size: 1.5em !important;
+    }
     }
   }
 
@@ -96,6 +114,10 @@
     font-weight: 100;
     font-size: 1.1em;
     line-height: 1.6;
+
+    @media(max-width: 600px) {
+          margin-bottom: 10px;
+    }
   }
 
   .code-toggle-link {
@@ -117,7 +139,7 @@
     width: 90%;
     @media(max-width: 600px) {
       width: 100%;
-      padding: 40px 20px;
+      padding: 10px !important;
     }
   }
 
@@ -155,9 +177,8 @@
     background: white;
     padding: 40px !important;
     @media(max-width: 600px) {
-      width: 100% !important;
-      margin: 0;
-      padding-top: 0;
+      width: 100%;
+      padding: 10px !important;
     }
 
     & > * {
@@ -172,9 +193,8 @@
     background-color: #ececec;
     padding-top: 40px;
     @media(max-width: 600px) {
-      width: 100% !important;
-      margin: 0;
-      padding-top: 0;
+      width: 100%;
+      padding: 10px !important;
     }
   }
 
@@ -214,6 +234,10 @@
     background-color: #fafafc !important;
     border: none !important;
     margin: 20px;
+
+    @media(max-width: 600px) {
+          margin: 0 0 0 20px;
+    }
   }
 
   div.input_area pre,
@@ -225,6 +249,12 @@
     white-space: pre-wrap;
     overflow: hidden;
     padding: 10px !important;
+
+    @media(max-width: 600px) {
+      span{
+        font-size:12px;
+      }
+    }
   }
 
   code,
@@ -253,7 +283,8 @@
     border: 1px solid #e2e2e2;
     padding: 15px;
     @media(max-width: 600px) {
-      width: 100%;
+      width: 100% !important;
+      margin: 10px auto;
     }
   }
 
@@ -281,6 +312,9 @@
     font-weight: 200;
     color: #000;
     width: 100%;
+    @media(max-width: 600px){
+      margin-left: 0;
+    }
   }
 
   .rendered_html p {
@@ -312,6 +346,11 @@
     overflow: auto;
     width: 100%;
     border: 1px solid #f1f1f1;
+  }
+
+  td,
+  th {
+    display: table-cell !important;
   }
 
   .rendered_html td,
@@ -527,6 +566,10 @@
     background-size: cover !important;
     padding: 50px !important;
     text-align: center !important;
+
+    @media(max-width: 600px) {
+      padding: 20px !important;
+    }
   }
 
   .rendered_html p {

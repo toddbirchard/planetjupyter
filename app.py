@@ -49,8 +49,7 @@ def notebookResult():
                     'displaytime': prettytime,
                     'githuburl': repo_url
                     }
-        result = col.insert_one(document)
-        result.inserted_id
+        result = col.replace_one({'url': document['url']}, document, upsert=True)
         return render_template('/notebook.html', content=extract, template="notebook-template")
     return render_template('/index.html')
 

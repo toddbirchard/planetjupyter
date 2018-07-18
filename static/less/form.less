@@ -24,6 +24,20 @@
 
   h3 {
     font-weight: 300;
+
+    @media(max-width: 600px) {
+      font-weight: 300;
+    font-size: 22px;
+    /* text-transform: uppercase; */
+    border-bottom: 1px solid #e1e1e1;
+    padding-bottom: 5px;
+    }
+  }
+
+  h4{
+    @media(max-width: 600px){
+      font-weight: 400;
+    }
   }
 
   a {
@@ -33,6 +47,10 @@
     line-height: 2;
     text-align: left;
   }
+}
+
+.recents a:last-child div {
+  margin-bottom:0;
 }
 
 .plotlyform {
@@ -112,6 +130,10 @@ hr {
   margin: 40px auto 20px;
   color: #efefef;
   opacity: 0.3;
+
+  @media (max-width: 600px){
+    display:none;
+  }
 }
 
 .container {
