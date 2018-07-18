@@ -5,7 +5,7 @@ from currenttime import yourtime, prettytime
 
 class JupyterForm(Form):
     """Homepage form."""
-    PlotlyURL = StringField('Enter any URL ending in .ipynb', validators=[
+    PlotlyURL = StringField('Provide a raw .ipynb URL from Github', validators=[
                         DataRequired(),
                             Regexp(".*\.ipynb$",
                             message="Please provide a URL ending in ipynb"),
