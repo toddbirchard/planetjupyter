@@ -11,12 +11,11 @@ from currenttime import yourtime, prettytime
 app = Flask(__name__)
 compress = FlaskStaticCompress(app)
 app.config['COMPRESSOR_DEBUG'] = app.config.get('DEBUG')
-app.config['COMPRESSOR_STATIC_PREFIX'] = '/static'
-app.config['COMPRESSOR_OUTPUT_DIR'] = '/sdist'
-app.config["APPLICATION_ROOT"] = '/'
+app.config['COMPRESSOR_STATIC_PREFIX'] = 'static'
+app.config['COMPRESSOR_OUTPUT_DIR'] = 'static/sdist'
+app.config['COMPRESSOR_ENABLED'] = True
+app.config['COMPRESSOR_FOLLOW_SYMLINKS'] = True
 app.static_folder = 'static'
-
-
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -47,7 +46,7 @@ def notebookUpload():
 @app.route("/notebookResult", methods=['POST'])
 def notebookResult():
     """Return internal notebook."""
-    app.static_folder = 'static'
+    app.static_folder = 'https://planetjupyter.com/static'
     url = request.form['PlotlyURL']
     githubsource = url.replace("https://raw.githubusercontent.com/", "https://github.com/")
     repo_url = githubsource.rsplit('/', 2)[0]
@@ -61,6 +60,7 @@ def notebookResult():
                     'githuburl': repo_url
                     }
         result = col.replace_one({'url': document['url']}, document, upsert=True)
+        #extract.write(extract)
         return render_template('/notebook.html', content=extract, template="notebook-template")
     else:
         return render_template('/index.html')

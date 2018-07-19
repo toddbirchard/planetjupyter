@@ -4,8 +4,10 @@
   {% include "head.html" %}
 
   {% compress 'css' %}
-    <link href="{{ url_for('static', filename='less/external.less') }}"rel="stylesheet" type="text/less">
-    <link href="{{ url_for('static', filename='less/home.less') }}"rel="stylesheet" type="text/less">
+    <!--<link href="{{ url_for('static', filename='less/external.less') }}"rel="stylesheet" type="text/less">
+    <link href="{{ url_for('static', filename='less/home.less') }}"rel="stylesheet" type="text/less">-->
+    <link href="http://planetjupyter.com/static/less/external.less" rel="stylesheet" type="text/less">
+    <link href="http://planetjupyter.com/static/less/home.less" rel="stylesheet" type="text/less">
   {% endcompress %}
   {% compress 'js' %}
     <script async src="{{ url_for('static', filename='js/remove.js') }}"></script>
