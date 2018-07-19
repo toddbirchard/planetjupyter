@@ -19,7 +19,7 @@ $(document).ready(function() {
   }
 
   function postLinkPreviews() {
-    $('a').each(function(index, element) {
+    $('.sidebar a').each(function(index, element) {
       var target = $(this).attr('href')
       $.ajax({
         url: api_url + "?key=5b439c179073fae7b9928e83dc64e969bd01b9562d693&q=" + $(this).text(),
@@ -31,7 +31,7 @@ $(document).ready(function() {
           console.log(result);
           $(element).after('<a class="recentnotebook" href="#"><div class="link-preview"><h4>' + verify_title + '</h4><div class="link-info">' + link_image + '<p>' + result.description + '</p></div></div></a>');
           $(element).remove();
-          $("a").click(function(event) {
+          $(".sidebar a").click(function(event) {
             event.preventDefault();
             target = target.replace("https://github.com/", "https://raw.githubusercontent.com/")
             $('input').val(target);

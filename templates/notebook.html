@@ -2,12 +2,9 @@
 <html class="{{template}}">
 <head>
   {% include "head.html" %}
-
   {% compress 'css' %}
-    <!--<link href="{{ url_for('static', filename='less/external.less') }}"rel="stylesheet" type="text/less">
-    <link href="{{ url_for('static', filename='less/home.less') }}"rel="stylesheet" type="text/less">-->
-    <link href="http://planetjupyter.com/static/less/external.less" rel="stylesheet" type="text/less">
-    <link href="http://planetjupyter.com/static/less/home.less" rel="stylesheet" type="text/less">
+    <link href="{{ url_for('static', filename='less/external.less') }}"rel="stylesheet" type="text/less">
+    <link href="{{ url_for('static', filename='less/home.less') }}"rel="stylesheet" type="text/less">
   {% endcompress %}
   {% compress 'js' %}
     <script async src="{{ url_for('static', filename='js/remove.js') }}"></script>
@@ -23,15 +20,16 @@
 
     gtag('config', 'UA-121820790-1');
   </script>
-
-  </head>
 <title>Planet Jupyter</title>
+</head>
+
 <header>
   <h1 class="title">Planet Jupyter</h1>
   <h2 class="subheadline">Publish and style your Jupyter notebooks, from anywhere on the web.</h2>
 </header>
 <body>
-{{ content }}
+{{content}}
+</body>
 <script>
   MathJax.Hub.Config({
     preview: [["img",{src: "https://s3.amazonaws.com/planetjupyter/loader.gif"}]]
@@ -47,5 +45,4 @@
   }, 15000);
 
 </script>
-</body>
 </html>
