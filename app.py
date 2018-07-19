@@ -12,7 +12,7 @@ app = Flask(__name__)
 compress = FlaskStaticCompress(app)
 app.config['COMPRESSOR_DEBUG'] = app.config.get('DEBUG')
 app.config['COMPRESSOR_STATIC_PREFIX'] = '/static'
-app.config['COMPRESSOR_OUTPUT_DIR'] = '/static'
+app.config['COMPRESSOR_OUTPUT_DIR'] = '/sdist'
 app.static_folder = 'static'
 
 headers = {
@@ -57,7 +57,7 @@ def notebookResult():
                     'githuburl': repo_url
                     }
         result = col.replace_one({'url': document['url']}, document, upsert=True)
-        return render_template('/notebook.html', content=extract, template="notebook-template")
+        return render_template('/notebook.html', content=extract, headers=headers, template="notebook-template")
     else:
         return render_template('/index.html')
 
