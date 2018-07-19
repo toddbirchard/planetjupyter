@@ -9,7 +9,6 @@ import sys
 from currenttime import yourtime, prettytime
 
 app = Flask(__name__, static_url_path='', static_folder="static", template_folder="templates", root_path=ROOT_DIR)
-)
 compress = FlaskStaticCompress(app)
 app.config['COMPRESSOR_DEBUG'] = app.config.get('DEBUG')
 app.config['COMPRESSOR_STATIC_PREFIX'] = 'static'
