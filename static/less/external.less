@@ -1,14 +1,50 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,600|Open+Sans');
 @import url('https://cloud.typography.com/7899256/7968392/css/fonts.css');
 
-.notebook-template {
   body {
     background-color: #ececec;
   }
 
   header {
-    @media(max-width: 800px) {
-      padding: 10px;
+    width: 100%;
+    position: relative;
+    height: 200px;
+    background-image: url('../img/bg.jpg');
+
+
+    h1 {
+      color: #fff;
+      width: fit-content;
+      width: -moz-fit-content;
+      font-size: 3em;
+      font-weight: 600;
+      font-family: 'Montserrat',sans-serif !important;
+      text-align: center;
+      text-shadow: #3876d0 0 0 4px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      z-index: 1;
+      top: 66px;
+
+      @media(max-width: 700px){
+            top: 14px;
+      }
+    }
+
+    .logo {
+      height: 120px;
+      width: 120px;
+      background: url("../img/favicon.png");
+      background-size: cover;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      top: 37px;
+      opacity: 0.75;
+
     }
   }
 
@@ -608,4 +644,3 @@
       margin: 0 !important;
     }
   }
-}

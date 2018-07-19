@@ -7,14 +7,17 @@ from flask_static_compress import FlaskStaticCompress
 import logging
 import sys
 from currenttime import yourtime, prettytime
+from flask_cors import CORS
 
-app = Flask(__name__, static_url_path='', static_folder="static", template_folder="templates", root_path=ROOT_DIR)
+
+app = Flask(__name__, static_url_path='', static_folder="static", template_folder="templates")
+CORS(app)
 compress = FlaskStaticCompress(app)
 app.config['COMPRESSOR_DEBUG'] = app.config.get('DEBUG')
 app.config['COMPRESSOR_STATIC_PREFIX'] = 'static'
-app.config['COMPRESSOR_OUTPUT_DIR'] = 'static/sdist'
-app.config['COMPRESSOR_ENABLED'] = True
-app.config['COMPRESSOR_FOLLOW_SYMLINKS'] = True
+app.config['COMPRESSOR_OUTPUT_DIR'] = 'sdist'
+#app.config['COMPRESSOR_ENABLED'] = True
+#app.config['COMPRESSOR_FOLLOW_SYMLINKS'] = True
 app.static_folder = 'static'
 
 headers = {
@@ -41,10 +44,8 @@ def notebookUpload():
         headers = {
           'Access-Control-Allow-Origin': '*',
           'Plotly-Client-Platform': 'Python 3 0.3.2',
-          'Authorization': key,
           'Content-Type': 'application/json',
-          'Plotly-World-Readable': 'true',
-          'X-File-Name': repo_url
+          'Vary': 'Accept'
         }
         url = request.form['PlotlyURL']
         githubsource = url.replace("https://raw.githubusercontent.com/", "https://github.com/")
@@ -65,8 +66,9 @@ def notebookResult():
         repo_url = githubsource.rsplit('/', 2)[0]
         r = requests.get(base_external_url + url, headers=headers, auth=(username, password))
         response = r.json()['html']
-        print("r.json() = ", response)
-        sys.stdout.flush()
+        #print("r.json() = ", response)
+        #print("response = ", response)
+        #sys.stdout.flush()
         extract = Markup(response).strip()
         document = {'url': request.form['PlotlyURL'],
                     'time': yourtime,
