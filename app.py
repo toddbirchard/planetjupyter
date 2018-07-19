@@ -60,7 +60,6 @@ def notebookResult():
                     'githuburl': repo_url
                     }
         result = col.replace_one({'url': document['url']}, document, upsert=True)
-        #extract.write(extract)
         return render_template('/notebook.html', content=extract, template="notebook-template")
     else:
         return render_template('/index.html')
