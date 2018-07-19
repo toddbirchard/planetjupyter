@@ -50,14 +50,14 @@ def notebookUpload():
         url = request.form['PlotlyURL']
         githubsource = url.replace("https://raw.githubusercontent.com/", "https://github.com/")
         repo_url = githubsource.rsplit('/', 2)[0]
-        r = requests.get('https://api.plot.ly/v2/jupyter-notebooks/upload', auth=(username, password), headers=headers)
+        #r = requests.get('https://api.plot.ly/v2/jupyter-notebooks/upload', auth=(username, password), headers=headers)
         plotlyurl = r.json()['web_url']
     #r = requests.get(base_account_url + notebookID, auth=(username, password), headers=headers)
     return redirect(plotlyurl, code=302)
 
 
-@app.route("/notebookResult", methods=['POST'])
-def notebookResult():
+@app.route("/notebook", methods=['POST', 'GET'])
+def notebook():
     """Return internal notebook."""
     app.static_folder = 'static'
     if request.method == 'POST':

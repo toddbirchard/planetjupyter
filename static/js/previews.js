@@ -1,6 +1,6 @@
 $(document).ready(function() {
   var api_url = 'https://api.linkpreview.net/';
-  base_external_url = 'https://api.plot.ly/v2/jupyter-notebooks/external?source='
+  base_external_url = '/notebook'
 
   function verifyImage(input) {
     if (input.length > 0) {
