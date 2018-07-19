@@ -5,6 +5,8 @@
 .home-template {
   top: 0;
   height: 100%;
+  display: flex;
+    justify-content: space-between;
 
   body,
   html {
@@ -20,6 +22,10 @@
 
   body {
     display: flex;
+
+    @media(max-width: 600px) {
+      display: block;
+    }
   }
 
   header {
@@ -42,6 +48,10 @@
       margin: auto;
       z-index: 1;
       top: 66px;
+
+      @media(max-width: 700px){
+            top: 14px;
+      }
     }
 
     .logo {
@@ -54,7 +64,8 @@
       right: 0;
       margin: auto;
       top: 37px;
-      opacity: 0.6;
+      opacity: 0.75;
+
     }
   }
 
@@ -181,9 +192,18 @@
     height: 100%;
     background: #2b3249;
     color: white;
+    max-width: 300px;
+    min-width: 232px;
+
+    @media(max-width: 600px) {
+      width: 100%;
+          max-width: none;
+          height: auto;
+    }
 
     .recentnotebook {
-      margin-bottom: 20px;
+      margin-bottom: 10px;
+      transition: all .3s easeout;
     }
 
     .preview-title {
@@ -194,6 +214,12 @@
       color: #fff;
       text-transform: uppercase;
       font-weight: 200;
+
+      @media(max-width: 600px) {
+        margin:0;
+        font-weight:400;
+        padding: 30px 0 10px;
+      }
     }
 
     .link-preview {
@@ -238,11 +264,18 @@
         font-weight: 400;
         text-decoration: none;
         line-height: 1.2;
-        font-size: 1em;
+        font-size: .9em;
         font-family: 'Open Sans';
         color: #fff;
         width: 100%;
         display: block;
+
+        @media(max-width: 600px) {
+          margin: 0;
+          padding: 0 0 15px;
+          font-weight: 400;
+          font-size: 18px;
+        }
       }
 
       p {
@@ -255,6 +288,11 @@
         overflow: hidden;
         width: 159px;
         font-weight: 300;
+
+        @media(max-width: 600px) {
+          width: auto;
+          margin-left: 20px;
+        }
       }
 
       span {
@@ -264,9 +302,21 @@
       .preview-image {
         width: 50px;
         height: 50px;
+        min-width: 50px;
         background-size: cover;
         display: inline-block;
         margin-right: 10px;
+        padding:0;
+
+        @media(max-width: 600px) {
+          margin: 0;
+          padding: 30px 0 10px;
+          font-weight: 500;
+          font-size: 24px;
+          width: 60px;
+          height: 60px;
+          min-width: 60px;
+        }
       }
     }
   }

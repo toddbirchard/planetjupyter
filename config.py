@@ -7,9 +7,12 @@ import sys
 base_url = 'https://api.plot.ly/v2/jupyter-notebooks/toddbirchard:'
 base_account_url = 'https://plot.ly/~toddbirchard/184.embed'
 base_external_url = 'https://api.plot.ly/v2/jupyter-notebooks/external?source='
+upload_url = "https://api.plot.ly/v2/jupyter-notebooks/upload"
+
 username = 'toddbirchard'
-password = "OISDy4S6Om1voqdOYzWJ"
-key = 'dG9kZGJpcmNoYXJkOk9JU0R5NFM2T20xdm9xZE9ZeldK'
+password = "Zoy3YIvNpI7m9eTDluko"
+key = 'dG9kZGJpcmNoYXJkOlpveTNZSXZOcEk3bTllVERsdWtv'
+
 
 # DB Creds
 mongo = pymongo.MongoClient('mongodb+srv://todd:a9tw3rjw@hackerdata-gktww.gcp.mongodb.net/admin', maxPoolSize=50, connect=False)

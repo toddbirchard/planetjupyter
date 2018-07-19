@@ -1,5 +1,5 @@
 from flask import Flask, url_for, render_template, Markup, request, Response
-from config import key, col, db, base_url, base_external_url, base_account_url
+from config import key, col, db, base_url, base_external_url, base_account_url, upload_url
 import requests
 from form import JupyterForm
 from flask_assets import Bundle, Environment
@@ -12,15 +12,11 @@ app = Flask(__name__)
 compress = FlaskStaticCompress(app)
 app.config['COMPRESSOR_DEBUG'] = app.config.get('DEBUG')
 app.config['COMPRESSOR_STATIC_PREFIX'] = '/static'
-app.config['COMPRESSOR_OUTPUT_DIR'] = '/static'
+app.config['COMPRESSOR_OUTPUT_DIR'] = '/sdist'
+app.config["APPLICATION_ROOT"] = '/'
 app.static_folder = 'static'
 
-headers = {
-  'Access-Control-Allow-Origin': '*',
-  'Plotly-Client-Platform': 'Python 3 0.3.2',
-  'Authorization': key,
-  'Content-Type': 'application/json'
-}
+
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -32,9 +28,17 @@ def home():
     return render_template('/index.html', form=JupyterForm(), recents=recent_searches, template="home-template")
 
 
-@app.route("/notebook")
-def notebook():
+@app.route("/notebookUpload")
+def notebookUpload():
     """Return internal notebook."""
+    headers = {
+      'Access-Control-Allow-Origin': '*',
+      'Plotly-Client-Platform': 'Python 3 0.3.2',
+      'Authorization': key,
+      'Content-Type': 'application/json',
+      'Plotly-World-Readable': 'true',
+      'X-File-Name': repo_url
+    }
     #r = requests.get(base_account_url + notebookID, auth=(username, password), headers=headers)
     r2 = requests.get(base_account_url, auth=(username, password), headers={'Content-Type': 'text/html'})
     return render_template('/notebook.html', content=Markup(r2.text), template="notebook-template")

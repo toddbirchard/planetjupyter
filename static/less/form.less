@@ -1,6 +1,10 @@
 .login-page {
   padding: 20px 60px;
   margin: auto;
+  max-width: 700px;
+  @media(max-width: 700px) {
+        padding: 20px;
+  }
 }
 
 .main-content {
@@ -9,13 +13,14 @@
   margin: 0;
   padding: 0;
   text-align: center;
-  width: 70%;
+      width: 100%;
   height: 100%;
   background: url("/static/img/bg.jpg");
   background-size: cover;
   @media(max-width: 600px) {
     padding: 20px 0;
-    width: 92%;
+    margin: 0;
+    height: 550px;
   }
 
   .formtitle {
@@ -76,6 +81,14 @@
   flex-direction: column;
   margin: 20px auto 0;
 
+  @media(max-width: 700px) {
+    width: 90%;
+  }
+
+  @media(max-width: 600px) {
+    width: 95%;
+  }
+
   a {
     margin-bottom: 10px;
   }
@@ -109,6 +122,7 @@
   padding: 22px;
   box-sizing: border-box;
   font-size: 14px;
+  transition: all .3s easeout;
 }
 
 .main-content button {
@@ -127,18 +141,21 @@
   color: white;
   font-weight: 600;
   border-radius: 2px;
-  background: #45b0c8;
+  background: #1e5980;
 
   &:hover {
-    background: #2a3fab
+    background: #1a1f6d;
   }
 }
 
 input {
+  transition: all .3s easeout;
   &:hover {
     background: #d8f9ff;
+    border: 1px solid #0373b7;
+    border-bottom: 0;
     &::-webkit-input-placeholder {
-      opacity: 0;
+      opacity: 0.3;
     }
   }
 
@@ -148,6 +165,13 @@ input {
     &::-webkit-input-placeholder {
       opacity: 0;
     }
+  }
+}
+
+.theform {
+  trasition: all .5s easeout;
+  &:hover{
+    box-shadow: 0px 0px 25px rgba(75, 76, 123, 0.4);
   }
 }
 
