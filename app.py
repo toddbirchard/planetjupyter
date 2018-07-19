@@ -26,10 +26,18 @@ headers = {
 @app.route('/', methods=['GET', 'POST'])
 def home():
     """Landing page."""
-    recent_searches = list(col.find().limit(3).sort("time", -1))
+    recent_searches = list(col.find().limit(5).sort("time", -1))
     print('recent_searches = ', recent_searches)
     sys.stdout.flush()
     return render_template('/index.html', form=JupyterForm(), recents=recent_searches, template="home-template")
+
+
+@app.route("/notebook")
+def notebook():
+    """Return internal notebook."""
+    #r = requests.get(base_account_url + notebookID, auth=(username, password), headers=headers)
+    r2 = requests.get(base_account_url, auth=(username, password), headers={'Content-Type': 'text/html'})
+    return render_template('/notebook.html', content=Markup(r2.text), template="notebook-template")
 
 
 @app.route("/notebookResult", methods=['POST'])
@@ -50,7 +58,8 @@ def notebookResult():
                     }
         result = col.replace_one({'url': document['url']}, document, upsert=True)
         return render_template('/notebook.html', content=extract, template="notebook-template")
-    return render_template('/index.html')
+    else:
+        return render_template('/index.html')
 
 
 @app.route("/example")

@@ -9,15 +9,18 @@
   <title>Planet Jupyter</title>
 </head>
 <body>
-  <header>
-    <h1 class="title">Planet Jupyter</h1>
-  </header>
-  <div class="form">
+  <div class="main-content">
+    <header>
+      <h1 class="title">Planet Jupyter</h1>
+      <div class="logo"></div>
+    </header>
     {% include "form.html" %}
-    
   </div>
-  {% compress 'js' %}
-    <script type="text/javascript" src="{{ url_for('static', filename='js/previews.js') }}"></script>
-  {% endcompress %}
+  <div class="sidebar">
+  {% include "recent.html" %}
+</div>
+{% compress 'js' %}
+  <script type="text/javascript" src="{{ url_for('static', filename='js/previews.js') }}"></script>
+{% endcompress %}
 </body>
 </html>

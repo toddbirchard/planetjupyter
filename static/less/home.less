@@ -4,6 +4,7 @@
 
 .home-template {
   top: 0;
+  height: 100%;
 
   body,
   html {
@@ -11,26 +12,54 @@
     color: white;
     margin: 0;
     padding: 0;
-    background: url("../img/bg.jpg");
     background-size: cover;
     background-position: center;
     width: 100%;
+    height: 100%;
+  }
+
+  body {
+    display: flex;
+  }
+
+  header {
+    idth: 100%;
+    position: relative;
+    height: 200px;
+
+    h1 {
+      color: #fff;
+      width: fit-content;
+      width: -moz-fit-content;
+      font-size: 3em;
+      font-weight: 600;
+      font-family: 'Montserrat',sans-serif !important;
+      text-align: center;
+      text-shadow: #3876d0 0 0 4px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      z-index: 1;
+      top: 66px;
+    }
+
+    .logo {
+      height: 120px;
+      width: 120px;
+      background: url("/static/img/favicon.png");
+      background-size: cover;
+      position: absolute;
+      left: 0;
+      right: 0;
+      margin: auto;
+      top: 37px;
+      opacity: 0.6;
+    }
   }
 
   .intro {
     text-align: center !important;
-  }
-
-  h1 {
-    color: #fff;
-    width: fit-content;
-    width: -moz-fit-content;
-    font-size: 3em;
-    font-weight: 600;
-    font-family: 'Montserrat', sans-serif !important;
-    text-align: center;
-    text-shadow: #3876d0 0 0 4px;
-    margin: 70px auto 40px;
   }
 
   .notebooktitle {
@@ -92,6 +121,7 @@
     font-weight: 600;
     color: white;
     width: fit-content;
+    background: white;
   }
 
   h3 {
@@ -146,86 +176,98 @@
     }
   }
 
-  .preview-title{
-     font-weight: 500;
-    font-size: 1.5em;
-    text-align: center;
-    margin: 40px auto 10px;
-    padding: 10px;
-    font-size: 25px;
-  }
+  .sidebar {
+    width: 30%;
+    height: 100%;
+    background: #2b3249;
+    color: white;
 
-  .link-preview {
-    border-radius: 3px;
-    overflow: hidden;
-    text-decoration: none !important;
-    margin-bottom: 5px;
-    padding: 0;
-    border: 1px solid #efefef;
-    height: 80px;
-    display: flex;
-    align-items: center;
-    transition: all 0.3s easeout;
-    background:rgba(255, 255, 255, .8);
-
-    &:hover {
-      background: #2dbbce;
-      color: white;
-
-      * {
-        color: white;
-      }
+    .recentnotebook {
+      margin-bottom: 20px;
     }
 
-    .link-info {
-      width: 80%;
-      display: inline-block;
+    .preview-title {
+      text-align: center;
+      margin: 20px auto 10px;
+      padding: 10px;
+      font-size: 20px;
+      color: #fff;
+      text-transform: uppercase;
+      font-weight: 200;
     }
 
-    .url-info {
-      font-size: 11px;
+    .link-preview {
+      border-radius: 0;
       overflow: hidden;
-      text-overflow: ellipsis;
-      display: block;
-      white-space: nowrap;
-      overflow: hidden;
-      line-clamp: 1;
-      white-space: nowrap;
-      width: 80%;
-    }
-
-    h4 {
-      margin: 0 0 5px;
-      font-weight: 600;
-      text-decoration: none;
-      line-height: 1.2;
-      font-size: 0.9em;
-      margin-top: 0;
-      font-family: 'Open Sans';
-    }
-
-    p {
-      color: #444444;
       text-decoration: none !important;
-      font-size: 14px;
-      margin: 0;
-      line-height: 1.5;
-      width: auto;
-      overflow: hidden;
-      height: 38px;
-      width: 94%;
-    }
+      padding: 20px;
+      transition: all 0.3s easeout;
+      background: rgba(29, 33, 41, 0.8);
+      color: white;
+      transition: all .3s easeout;
 
-    span {
-      font-size: 11px;
-    }
+      &:hover {
+        background: #2dbbce;
+        color: white;
 
-    .preview-image {
-      width: 80px;
-      height: 80px;
-      background-size: cover;
-      display: inline-block;
-      margin-right: 15px;
+        * {
+          color: white;
+        }
+      }
+
+      .link-info {
+        width: auto;
+        display: inline-block;
+        display: flex;
+      }
+
+      .url-info {
+        font-size: 11px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: block;
+        white-space: nowrap;
+        overflow: hidden;
+        line-clamp: 1;
+        white-space: nowrap;
+        width: 80%;
+      }
+
+      h4 {
+        margin: 0 0 15px;
+        font-weight: 400;
+        text-decoration: none;
+        line-height: 1.2;
+        font-size: 1em;
+        font-family: 'Open Sans';
+        color: #fff;
+        width: 100%;
+        display: block;
+      }
+
+      p {
+        color: #fff;
+        text-decoration: none !important;
+        font-size: 12px;
+        margin: 0;
+        line-height: 1.2;
+        width: auto;
+        overflow: hidden;
+        width: 159px;
+        font-weight: 300;
+      }
+
+      span {
+        font-size: 11px;
+      }
+
+      .preview-image {
+        width: 50px;
+        height: 50px;
+        background-size: cover;
+        display: inline-block;
+        margin-right: 10px;
+      }
     }
   }
 }

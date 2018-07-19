@@ -1,21 +1,13 @@
  {% block content %}
 <div class="login-page">
-    <form action="{{ url_for('notebookResult') }}" method="post">
-      <h3 class="formtitle">Make your research beautiful</h3>
-      <div class="formcontent">
-        <div>
-          {{ form.PlotlyURL.label }} {{ form.PlotlyURL(placeholder='https://raw.githubusercontent.com/jupyter/mozfest15-training/master/05-multiprocessing.ipynb') }}
-        </div>
-        {{ form.csrf_token }}
-        <button>Style my Notebook</button>
-      </form>
+  <form action="{{ url_for('notebookResult') }}" method="post">
+    <div class="formcontent">
+      <div>
+        {{ form.PlotlyURL.label }} {{ form.PlotlyURL(autofocus=true, required="required", placeholder='https://raw.githubusercontent.com/jupyter/mozfest15-training/master/05-multiprocessing.ipynb') }}
       </div>
-      <div class="recents">
-          <h4 class="preview-title">Recent searches</h4>
-        {% for record in recents %}
-          <a href="{{ record.url }}" class="latest">{{ record.githuburl }}</a>
-        {% endfor %}
-      </div>
-
+      {{ form.csrf_token }}
+      <button>Style my Notebook</button>
+  </form>
   </div>
+</div>
 {% endblock %}
