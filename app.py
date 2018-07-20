@@ -7,7 +7,12 @@ from flask_static_compress import FlaskStaticCompress
 import logging
 import sys
 from currenttime import yourtime, prettytime
-from flask_cors import CORS
+from flask_cors import CORS, cross_origin
+from nbconvert import HTMLExporter
+from traitlets.config import Config
+from nbconvert import HTMLExporter
+import nbformat
+import json
 
 
 app = Flask(__name__, static_url_path='', static_folder="static", template_folder="templates")
@@ -16,9 +21,15 @@ compress = FlaskStaticCompress(app)
 app.config['COMPRESSOR_DEBUG'] = app.config.get('DEBUG')
 app.config['COMPRESSOR_STATIC_PREFIX'] = 'static'
 app.config['COMPRESSOR_OUTPUT_DIR'] = 'sdist'
+app.config['CORS_HEADERS'] = 'Content-Type'
+app.config['Access-Control-Allow-Origin'] = '*'
 #app.config['COMPRESSOR_ENABLED'] = True
 #app.config['COMPRESSOR_FOLLOW_SYMLINKS'] = True
 app.static_folder = 'static'
+
+html_exporter = HTMLExporter()
+html_exporter.template_file = 'basic'
+
 
 headers = {
     'Content-Type': 'application/json',
@@ -27,7 +38,7 @@ headers = {
 }
 
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET', 'POST', 'OPTIONS'])
 def home():
     """Landing page."""
     recent_searches = list(col.find().limit(5).sort("time", -1))
@@ -47,7 +58,7 @@ def notebookUpload():
           'Content-Type': 'application/json',
           'Vary': 'Accept'
         }
-        url = request.form['PlotlyURL']
+        #url = request.form['PlotlyURL']
         githubsource = url.replace("https://raw.githubusercontent.com/", "https://github.com/")
         repo_url = githubsource.rsplit('/', 2)[0]
         #r = requests.get('https://api.plot.ly/v2/jupyter-notebooks/upload', auth=(username, password), headers=headers)
@@ -56,7 +67,7 @@ def notebookUpload():
     return redirect(plotlyurl, code=302)
 
 
-@app.route("/notebook", methods=['POST', 'GET'])
+@app.route("/notebook", methods=['POST', 'GET', 'OPTIONS'])
 def notebook():
     """Return internal notebook."""
     app.static_folder = 'static'
@@ -66,6 +77,11 @@ def notebook():
         repo_url = githubsource.rsplit('/', 2)[0]
         r = requests.get(base_external_url + url, headers=headers, auth=(username, password))
         response = r.json()['html']
+        # Testing this
+        #notebook = nbformat.read(url, as_version=4)
+        #(body, resources) = html_exporter.from_notebook_node(notebook)
+        #print(body[:400] + '...')
+        # --------
         #print("r.json() = ", response)
         #print("response = ", response)
         #sys.stdout.flush()

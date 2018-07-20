@@ -14,7 +14,9 @@ flask-pymongo = "*"
 pymongo = "*"
 dnspython = "*"
 jac = "*"
-flask_cors = "*"
+flask-cors = "*"
+nbformat = "*"
+nbconvert = "*"
 
 [dev-packages]
 

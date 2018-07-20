@@ -2,8 +2,9 @@
 <html class="{{template}}">
 <head>
   {% include "head.html" %}
+  <link href="https://s3.amazonaws.com/planetjupyter/external.css" rel="stylesheet" type="text/css">
+
   {% compress 'css' %}
-    <link href="{{ url_for('static', filename='less/external.less') }}"rel="stylesheet" type="text/less">
   {% endcompress %}
     <!--<script async src="{{ url_for('static', filename='js/remove.js') }}"></script>
     <script async src="{{ url_for('static', filename='js/notebook.js') }}"></script>-->
