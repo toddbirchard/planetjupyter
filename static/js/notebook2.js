@@ -1,4 +1,4 @@
-$(document).ready(){
+$( document ).ready(function() {
   $('base').attr('href', 'https://planetjupyter.com/');
 
   $('table').css('width', '100% !important');
