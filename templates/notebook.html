@@ -5,6 +5,7 @@
   <link href="https://s3.amazonaws.com/planetjupyter/external.css" rel="stylesheet" type="text/css">
 
   {% compress 'css' %}
+
   {% endcompress %}
 
     <!--<script async src="{{ url_for('static', filename='js/remove.js') }}"></script>
@@ -264,7 +265,7 @@ pre .loading {
   width: 100% !important;
   border-radius: 5px !important;
 }
-pre div#notebook-container {
+div#notebook-container {
   box-shadow: none !important;
   width: 90% !important;
   margin: auto !important;
@@ -273,15 +274,15 @@ pre div#notebook-container {
   padding: 40px ! !important;
 }
 @media (max-width: 600px) {
-  pre div#notebook-container {
+  div#notebook-container {
     width: 100% !important;
     padding: 10px ! !important;
   }
 }
-pre div#notebook-container > * {
+div#notebook-container > * {
   width: 100% !important;
 }
-pre div#notebook {
+div#notebook {
   font-family: "Whitney SSm A", "Times New Roman", serif !important;
   width: 90% !important;
   margin: auto !important;
