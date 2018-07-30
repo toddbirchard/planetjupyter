@@ -23,8 +23,6 @@ app.config['COMPRESSOR_STATIC_PREFIX'] = 'static'
 app.config['COMPRESSOR_OUTPUT_DIR'] = 'sdist'
 app.config['CORS_HEADERS'] = 'Content-Type'
 app.config['Access-Control-Allow-Origin'] = '*'
-#app.config['COMPRESSOR_ENABLED'] = True
-#app.config['COMPRESSOR_FOLLOW_SYMLINKS'] = True
 app.static_folder = 'static'
 
 html_exporter = HTMLExporter()
