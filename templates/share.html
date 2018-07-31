@@ -1,0 +1,50 @@
+
+{% block share %}
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+{% compress 'css' %}
+  <link href="{{ url_for('static', filename='less/buttons.less') }}" rel="stylesheet" type="text/less">
+{% endcompress %}
+
+<div id="twitter" class="big-section">
+        <div class="container">
+            <div id="twitter-rectangle" class="row">
+                <div class="col-xs-6">
+                    <div id="tw-1" class="tw-outside">
+                        <div class="tw-text">Follow Us On Twitter</div>
+                        <div class="tw-click">
+                            <a href="https://twitter.com/scotch_io" class="twitter-follow-button" data-show-count="false">Follow @scotch_io</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div id="tw-2" class="tw-outside">
+                        <div class="tw-text">Follow Chris!</div>
+                        <div class="tw-click">
+                            <a href="https://twitter.com/sevilayha" class="twitter-follow-button" data-show-count="false">Follow @sevilayha</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="twitter-circle" class="row">
+                <div class="col-xs-6">
+                    <div id="tw-3" class="tw-outside">
+                        <div class="tw-text"><span class="fa fa-twitter"></span></div>
+                        <div class="tw-click">
+                            <a href="https://twitter.com/scotch_io" class="twitter-follow-button" data-show-count="false">Follow @scotch_io</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div id="tw-4" class="tw-outside">
+                        <div class="tw-text"><span class="fa fa-twitter"></span></div>
+                        <div class="tw-click">
+                            <a href="https://twitter.com/sevilayha" class="twitter-follow-button" data-show-count="false">Follow @sevilayha</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
