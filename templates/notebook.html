@@ -3,13 +3,6 @@
 <head>
   {% include "head.html" %}
   <!--<script async src="{{ url_for('static', filename='js/notebook.js') }}"></script>-->
-  <!-- Css -->
-  {% compress 'css' %}
-    <link rel="stylesheet" type="text/less" href="{{ url_for('static', filename='less/external.less') }}" />
-  {% endcompress %}
-  {% compress 'js' %}
-    <script async src="{{ url_for('static', filename='js/remove.js') }}"></script>
-  {% endcompress %}
 </head>
 
 <header>
