@@ -29,7 +29,7 @@ $(document).ready(function() {
           var link_image = verifyImage(result.image);
           var verify_title = verifyTitle(result);
           console.log(result);
-          $(element).after('<a class="recentnotebook" href="#"><div class="link-preview"><h4>' + verify_title + '</h4><div class="link-info">' + link_image + '<p>' + result.description + '</p></div></div></a>');
+          $(element).after('<a class="recentnotebook" href="' + target + '"><div class="link-preview"><h4>' + verify_title + '</h4><div class="link-info">' + link_image + '<p>' + result.description + '</p></div></div></a>');
           $(element).remove();
           $(".sidebar a").click(function(event) {
             event.preventDefault();
