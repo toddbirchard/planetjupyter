@@ -42,7 +42,7 @@ def home():
     recent_searches = list(col.find().limit(10).sort("time", -1))
     print('recent_searches = ', recent_searches)
     sys.stdout.flush()
-    return render_template('/index.html', form=JupyterForm(), error='', recents=recent_searches, template="home-template")
+    return render_template('/index.html', form=JupyterForm(), recents=recent_searches, template="home-template")
 
 
 @app.route("/notebook", methods=['POST', 'GET', 'OPTIONS'])
