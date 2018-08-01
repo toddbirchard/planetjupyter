@@ -20,7 +20,7 @@ $(document).ready(function() {
 
   function postLinkPreviews() {
     $('.sidebar a').each(function(index, element) {
-      var target = $(this).text();
+      var target = $(this).attr('href');
       $.ajax({
         url: api_url + "?key=5b439c179073fae7b9928e83dc64e969bd01b9562d693&q=" + $(this).text(),
         contentType: "application/json",
