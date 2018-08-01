@@ -2,6 +2,6 @@
 <h4 class="preview-title">Recent searches</h4>
 <div class="recents">
   {% for record in recents %}
-  <a href="{{ record.url }}" class="latest">{{ record.url }}</a> {% endfor %}
+  <a href="{{ record.url }}" class="latest">{{ record.githuburl }}</a> {% endfor %}
 </div>
 {% endblock %}
