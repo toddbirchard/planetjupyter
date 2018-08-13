@@ -2,6 +2,8 @@
 
 Publish and style your Jupyter notebooks, directly from github.
 
+_*NOT* production ready._
+
 ![python](https://img.shields.io/badge/python-3.6.6-blue.svg?longCache=true&style=flat-square)
 ![Flask](https://img.shields.io/badge/Flask-1.0.2-blue.svg?longCache=true&style=flat-square)
 ![Flask-Static-Compress](https://img.shields.io/badge/Flask_Static_Compress-1.0.2-blue.svg?longCache=true&style=flat-square)
