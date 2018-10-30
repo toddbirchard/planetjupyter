@@ -1,7 +1,5 @@
 import pymongo
 import os
-import requests
-import sys
 
 # Plotly
 base_url = 'https://api.plot.ly/v2/jupyter-notebooks/toddbirchard:'
