@@ -19,3 +19,5 @@ __pycache__/
 /setup.cfg
 
 static/js/MathJax
+Pipfile
+Pipfile.lock

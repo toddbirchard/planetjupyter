@@ -3,3 +3,4 @@ node_modules
 package.json
 __pycache__
 static/js/MathJax
+Pipfile.lock
