@@ -2,21 +2,18 @@ from flask import Flask, url_for, render_template, Markup, request, Response, re
 from config import key, col, db, base_url, base_external_url, base_account_url, username, password, ROOT_DIR
 import requests
 from form import JupyterForm
-from flask_assets import Bundle, Environment
+# from flask_assets import Bundle, Environment
 from flask_static_compress import FlaskStaticCompress
 import logging
 import sys
 from currenttime import yourtime, prettytime
-from flask_cors import CORS, cross_origin
-from nbconvert import HTMLExporter
-from traitlets.config import Config
-from nbconvert import HTMLExporter
-import nbformat
+# from flask_cors import CORS, cross_origin
+# from nbconvert import HTMLExporter
 import json
 
 
 app = Flask(__name__, static_url_path='', static_folder="static", template_folder="templates")
-CORS(app)
+# CORS(app)
 compress = FlaskStaticCompress(app)
 app.config['COMPRESSOR_DEBUG'] = app.config.get('DEBUG')
 app.config['COMPRESSOR_STATIC_PREFIX'] = 'static'
@@ -25,8 +22,8 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 app.config['Access-Control-Allow-Origin'] = '*'
 app.static_folder = 'static'
 
-html_exporter = HTMLExporter()
-html_exporter.template_file = 'basic'
+# html_exporter = HTMLExporter()
+# html_exporter.template_file = 'basic'
 
 
 headers = {
@@ -51,8 +48,8 @@ def notebook():
     app.static_folder = 'static'
     if request.method == 'POST':
         if ".ipynb" not in request.form['PlotlyURL']:
-             error = Markup('<p class="error">Invalid URL: Please submit a Jupyter Notebook URL ending in .ipynb</p>')
-             return render_template('/index.html', error=error, form=JupyterForm(), recents='', template="home-template")
+            error = Markup('<p class="error">Invalid URL: Please submit a Jupyter Notebook URL ending in .ipynb</p>')
+            return render_template('/index.html', error=error, form=JupyterForm(), recents='', template="home-template")
         else:
             url = request.form['PlotlyURL']
             githubsource = url.replace("https://raw.githubusercontent.com/", "https://github.com/")
