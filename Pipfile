@@ -21,4 +21,4 @@ nbconvert = "*"
 [dev-packages]
 
 [requires]
-python_version = "3.7.0"
+python_version = "3.7.1"

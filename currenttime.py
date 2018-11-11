@@ -1,14 +1,14 @@
-from datetime import datetime, timezone
+from datetime import datetime
 
 
 def getTime():
-    """Get user's current time"""
+    """Get user's current time."""
     rightnow = datetime.today()
     return rightnow
 
 
 def getPrettyTime():
-    """Get user's pretty current time"""
+    """Get user's pretty current time."""
     rightnow = datetime.today()
     prettytime = rightnow.ctime()
     return prettytime
