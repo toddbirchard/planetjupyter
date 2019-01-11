@@ -51,8 +51,8 @@ def notebook():
     app.static_folder = 'static'
     if request.method == 'POST':
         if ".ipynb" not in request.form['PlotlyURL']:
-             error = Markup('<p class="error">Invalid URL: Please submit a Jupyter Notebook URL ending in .ipynb</p>')
-             return render_template('/index.html', error=error, form=JupyterForm(), recents='', template="home-template")
+            error = Markup('<p class="error">Invalid URL: Please submit a Jupyter Notebook URL ending in .ipynb</p>')
+            return render_template('/index.html', error=error, form=JupyterForm(), recents='', template="home-template")
         else:
             url = request.form['PlotlyURL']
             githubsource = url.replace("https://raw.githubusercontent.com/", "https://github.com/")
