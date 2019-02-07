@@ -11,4 +11,4 @@ _*NOT* production ready._
 ![flask_assets](https://img.shields.io/badge/flask_assets-0.12-blue.svg?longCache=true&style=flat-square)
 ![gunicorn](https://img.shields.io/badge/gunicorn-19.8.1-black.svg?longCache=true&style=flat-square)
 
-![preview](https://storage.googleapis.com/planetjupyter/preview.png)
+![Planet Jupyter](https://raw.githubusercontent.com/toddbirchard/planetjupyter/master/static/img/planetjupyter.jpg)
