@@ -1,8 +1,14 @@
-import pymongo
 import os
 
 
 class Config:
+
+    # General
+    TESTING = os.environ["TESTING"]
+    SECRET_KEY = os.environ["SECRET_KEY"]
+    FLASK_DEBUG = os.environ["FLASK_DEBUG"]
+    SESSION_TYPE = os.environ["SESSION_TYPE"]
+    REDIS_URL = os.environ["REDIS_URI"]
 
     # Plotly
     base_url = 'https://api.plot.ly/v2/jupyter-notebooks/toddbirchard:'
@@ -10,12 +16,5 @@ class Config:
     base_external_url = 'https://api.plot.ly/v2/jupyter-notebooks/external?source='
     upload_url = "https://api.plot.ly/v2/jupyter-notebooks/upload"
 
-    username = 'toddbirchard'
-    password = "Zoy3YIvNpI7m9eTDluko"
-    key = 'dG9kZGJpcmNoYXJkOlpveTNZSXZOcEk3bTllVERsdWtv'
-
     # DB Creds
-    mongo = pymongo.MongoClient('mongodb+srv://todd:a9tw3rjw@hackerdata-gktww.gcp.mongodb.net/admin', maxPoolSize=50, connect=False)
-    db = pymongo.database.Database(mongo, 'jupyter',)
-    col = pymongo.collection.Collection(db, 'urls')
-    ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
+    SQLALCHEMY_DATABASE_URI = os.environ.get('POSTGRES_URI')

@@ -1,18 +1,19 @@
-from flask import Flask, url_for, render_template, Markup, request, Response, redirect, flash
-from config import key, col, db, base_url, base_external_url, base_account_url, username, password, ROOT_DIR
-import requests
-from form import JupyterForm
-# from flask_assets import Bundle, Environment
-from flask_static_compress import FlaskStaticCompress
 import logging
 import sys
-from currenttime import yourtime, prettytime
+import json
+from flask import Flask, url_for, render_template, Markup, request, Response, redirect, flash
+import requests
+from . import form  # form import JupyterForm
+from . import currenttime
+# from flask_assets import Bundle, Environment
+from flask_static_compress import FlaskStaticCompress
+from flask import current_app as app
 # from flask_cors import CORS, cross_origin
 # from nbconvert import HTMLExporter
-import json
 
 
-app = Flask(__name__, static_url_path='', static_folder="static", template_folder="templates")
+
+
 # CORS(app)
 compress = FlaskStaticCompress(app)
 app.config['COMPRESSOR_DEBUG'] = app.config.get('DEBUG')
@@ -39,7 +40,7 @@ def home():
     recent_searches = list(col.find().limit(10).sort("time", -1))
     print('recent_searches = ', recent_searches)
     sys.stdout.flush()
-    return render_template('/index.html', form=JupyterForm(), recents=recent_searches, template="home-template")
+    return render_template('/index.html', form=form.JupyterForm(), recents=recent_searches, template="home-template")
 
 
 @app.route("/notebook", methods=['POST', 'GET', 'OPTIONS'])
@@ -49,7 +50,7 @@ def notebook():
     if request.method == 'POST':
         if ".ipynb" not in request.form['PlotlyURL']:
             error = Markup('<p class="error">Invalid URL: Please submit a Jupyter Notebook URL ending in .ipynb</p>')
-            return render_template('/index.html', error=error, form=JupyterForm(), recents='', template="home-template")
+            return render_template('/index.html', error=error, form=form.JupyterForm(), recents='', template="home-template")
         else:
             url = request.form['PlotlyURL']
             githubsource = url.replace("https://raw.githubusercontent.com/", "https://github.com/")
@@ -63,8 +64,8 @@ def notebook():
             response = r.json()['html']
             extract = Markup(response).strip()
             document = {'url': request.form['PlotlyURL'],
-                        'time': yourtime,
-                        'displaytime': prettytime,
+                        'time': currenttime.yourtime,
+                        'displaytime': currenttime.prettytime,
                         'githuburl': repo_url
                         }
             result = col.replace_one({'url': document['url']}, document, upsert=True)
