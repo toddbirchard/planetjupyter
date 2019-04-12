@@ -50,11 +50,7 @@ def notebook():
     if request.method == 'POST':
         if ".ipynb" not in request.form['PlotlyURL']:
             error = Markup('<p class="error">Invalid URL: Please submit a Jupyter Notebook URL ending in .ipynb</p>')
-<<<<<<< HEAD:application/routes.py
             return render_template('/index.html', error=error, form=form.JupyterForm(), recents='', template="home-template")
-=======
-            return render_template('/index.html', error=error, form=JupyterForm(), recents='', template="home-template")
->>>>>>> 453cbc4c0bbee22fe8e0b53126b94a0411101c41:app.py
         else:
             url = request.form['PlotlyURL']
             githubsource = url.replace("https://raw.githubusercontent.com/", "https://github.com/")
