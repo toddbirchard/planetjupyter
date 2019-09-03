@@ -2,7 +2,7 @@ import os
 
 
 class Config:
-    """Configuration class for all FLask settings.""" 
+    """Configuration class for all FLask settings."""
 
     # General
     TESTING = os.environ["TESTING"]

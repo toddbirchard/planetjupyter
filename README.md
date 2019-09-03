@@ -1,6 +1,6 @@
 # Planet Jupyter
 
-Publish and style your Jupyter notebooks, directly from github.
+Publish and style your Jupyter notebooks, directly from Github.
 
 _*NOT* production ready._
 
