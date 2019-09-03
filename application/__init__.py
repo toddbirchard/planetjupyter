@@ -17,8 +17,8 @@ def create_app():
 
     with app.app_context():
         # Set Global Session Variables
-        r.init_app(app, charset="utf-8", decode_responses=True)
-        r.set('uri', app.config['SQLALCHEMY_DATABASE_URI'])
+        # r.init_app(app, charset="utf-8", decode_responses=True)
+        # r.set('uri', app.config['SQLALCHEMY_DATABASE_URI'])
 
 
         # Initialize Global DB
